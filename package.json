@@ -1,0 +1,19 @@
+{
+  "name": "@local/dsh-settings-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Adds a Test page to DSH Settings.",
+  "type": "module",
+  "files": ["lib", "cordis.patch.yml"],
+  "exports": { ".": "./lib/index.js", "./client": "./lib/client.js" },
+  "scripts": { "build": "tsc -p tsconfig.json" },
+  "devDependencies": { "typescript": "^5.6.3" },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-settings"]
+    }
+  }
+}
